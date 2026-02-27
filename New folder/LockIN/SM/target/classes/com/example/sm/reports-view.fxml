@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.sm.ReportsController"
+            prefWidth="1050" prefHeight="680"
+            style="-fx-background-color: #f8fafc;">
+
+    <top>
+        <VBox spacing="16" style="-fx-padding: 16; -fx-background-color: #ffffff; -fx-border-color: #e2e8f0; -fx-border-width: 0 0 1 0;">
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <Button text="← Back to Main Menu"
+                        onAction="#goBack"
+                        style="-fx-background-color: #64748b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 16;"/>
+                <Label text="Reports &amp; Analytics"
+                       style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #0d9488;"/>
+            </HBox>
+
+            <HBox spacing="24" alignment="CENTER_LEFT" style="-fx-padding: 8 0;">
+                <Label text="Total Students:" style="-fx-font-size: 14px;"/>
+                <Label fx:id="totalLabel" text="—" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                <Label text="Active:" style="-fx-font-size: 14px;"/>
+                <Label fx:id="activeLabel" text="—" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                <Label text="Inactive:" style="-fx-font-size: 14px;"/>
+                <Label fx:id="inactiveLabel" text="—" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                <Label text="Average GPA:" style="-fx-font-size: 14px;"/>
+                <Label fx:id="averageGpaLabel" text="—" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            </HBox>
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Button text="Top Performers (Top 10)"
+                        onAction="#showTopPerformers"
+                        style="-fx-background-color: #0d9488; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 10 16; -fx-pref-width: 180;"/>
+                <Button text="At-Risk Students (GPA &lt; 2.0)"
+                        onAction="#showAtRisk"
+                        style="-fx-background-color: #0d9488; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 10 16; -fx-pref-width: 200;"/>
+                <Button text="Show All Students"
+                        onAction="#showAll"
+                        style="-fx-background-color: #0d9488; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 10 16; -fx-pref-width: 160;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="reportTable" style="-fx-padding: 0 16 16 16;">
+            <columns>
+                <TableColumn fx:id="idCol" text="Student ID" prefWidth="110"/>
+                <TableColumn fx:id="nameCol" text="Full Name" prefWidth="240"/>
+                <TableColumn fx:id="programmeCol" text="Programme" prefWidth="200"/>
+                <TableColumn fx:id="levelCol" text="Level" prefWidth="80"/>
+                <TableColumn fx:id="gpaCol" text="GPA" prefWidth="90"/>
+                <TableColumn fx:id="statusCol" text="Status" prefWidth="110"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

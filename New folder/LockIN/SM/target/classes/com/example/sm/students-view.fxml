@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.sm.StudentsController"
+            prefWidth="1100" prefHeight="680"
+            style="-fx-background-color: #f8fafc;">
+
+    <top>
+        <VBox spacing="12" style="-fx-padding: 16;">
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <Button text="← Back to Main Menu"
+                        onAction="#goBack"
+                        style="-fx-background-color: #64748b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 16;"/>
+                <Label text="Manage Students"
+                       style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #0d9488;"/>
+            </HBox>
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="Search by ID or name…" prefWidth="280" style="-fx-background-radius: 6; -fx-border-radius: 6;"/>
+                <ComboBox fx:id="statusFilter" promptText="Filter by Status" prefWidth="160" style="-fx-background-radius: 6; -fx-border-radius: 6;"/>
+                <Button text="Search" onAction="#handleSearch" style="-fx-background-color: #0d9488; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                <Button text="Clear" onAction="#handleClearSearch" style="-fx-background-color: #6b7280; -fx-text-fill: white; -fx-background-radius: 6;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="studentTable" style="-fx-padding: 0 16 16 16;">
+            <columns>
+                <TableColumn fx:id="idCol" text="Student ID" prefWidth="110"/>
+                <TableColumn fx:id="nameCol" text="Full Name" prefWidth="220"/>
+                <TableColumn fx:id="programmeCol" text="Programme" prefWidth="180"/>
+                <TableColumn fx:id="levelCol" text="Level" prefWidth="80"/>
+                <TableColumn fx:id="gpaCol" text="GPA" prefWidth="80"/>
+                <TableColumn fx:id="statusCol" text="Status" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <right>
+        <VBox spacing="14" style="-fx-padding: 16; -fx-background-color: #ffffff; -fx-border-color: #e2e8f0; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 8;">
+            <Label text="Add / Edit Student" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #334155;"/>
+            <TextField fx:id="idField" promptText="Student ID"/>
+            <TextField fx:id="nameField" promptText="Full Name"/>
+            <TextField fx:id="programmeField" promptText="Programme"/>
+            <TextField fx:id="levelField" promptText="Level (100-700)"/>
+            <TextField fx:id="gpaField" promptText="GPA (0.0 - 4.0)"/>
+            <TextField fx:id="emailField" promptText="Email"/>
+            <TextField fx:id="phoneField" promptText="Phone Number"/>
+            <ComboBox fx:id="statusBox" promptText="Status"/>
+
+            <VBox spacing="10" style="-fx-padding: 12 0 0 0;">
+                <Button text="Add Student" onAction="#handleAddStudent" style="-fx-background-color: #16a34a; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 10; -fx-pref-width: 280;"/>
+                <Button text="Update Student" onAction="#handleUpdateStudent" style="-fx-background-color: #0d9488; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 10; -fx-pref-width: 280;"/>
+                <Button text="Delete Selected" onAction="#handleDeleteStudent" style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 10; -fx-pref-width: 280;"/>
+            </VBox>
+
+            <VBox spacing="8" style="-fx-padding: 16 0 0 0;">
+                <Button text="Export to CSV" onAction="#handleExportCSV" style="-fx-background-color: #6b7280; -fx-text-fill: white; -fx-background-radius: 6; -fx-pref-width: 280;"/>
+                <Button text="Import from CSV" onAction="#handleImportCSV" style="-fx-background-color: #6b7280; -fx-text-fill: white; -fx-background-radius: 6; -fx-pref-width: 280;"/>
+            </VBox>
+        </VBox>
+    </right>
+</BorderPane>
